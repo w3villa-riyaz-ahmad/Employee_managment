@@ -1,0 +1,7 @@
+GET /employees → index
+GET /employees/new → new
+POST /employees → create
+GET /employees/:id → show
+GET /employees/:id/edit → edit
+PATCH /employees/:id → update
+DELETE /employees/:id →

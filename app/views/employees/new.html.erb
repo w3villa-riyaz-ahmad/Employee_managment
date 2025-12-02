@@ -1,0 +1,60 @@
+<h1 class="text-center bg-primary text-white py-3 mb-4">Create New Employee</h1>
+
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-md-6">
+
+      <%= form_with(model: @employee, local: true, class: "card p-4 shadow-sm") do |form| %>
+
+        <% if @employee.errors.any? %>
+          <div class="alert alert-danger">
+            <h5><%= pluralize(@employee.errors.count, "error") %> prohibited this employee from being saved:</h5>
+            <ul>
+              <% @employee.errors.full_messages.each do |msg| %>
+                <li><%= msg %></li>
+              <% end %>
+            </ul>
+          </div>
+        <% end %>
+
+        <!-- Name Field -->
+        <div class="mb-3">
+          <%= form.label :name, class: "form-label" %>
+          <%= form.text_field :name, class: "form-control" %>
+
+          <% if @employee.errors[:name].any? %>
+            <div class="text-danger mt-1"><%= @employee.errors[:name].first %></div>
+          <% end %>
+        </div>
+
+        <!-- Salary Field -->
+        <div class="mb-3">
+          <%= form.label :salary, class: "form-label" %>
+          <%= form.number_field :salary, class: "form-control" %>
+
+          <% if @employee.errors[:salary].any? %>
+            <div class="text-danger mt-1"><%= @employee.errors[:salary].first %></div>
+          <% end %>
+        </div>
+
+        <!-- Role Field -->
+        <div class="mb-3">
+          <%= form.label :role, class: "form-label" %>
+          <%= form.text_field :role, class: "form-control" %>
+
+          <% if @employee.errors[:role].any? %>
+            <div class="text-danger mt-1"><%= @employee.errors[:role].first %></div>
+          <% end %>
+        </div>
+
+        <!-- Buttons -->
+        <div class="text-center">
+          <%= form.submit "Create Employee", class: "btn btn-primary px-4" %>
+          <%= link_to "Back", employees_path, class: "btn btn-secondary px-4 ms-2" %>
+        </div>
+
+      <% end %>
+
+    </div>
+  </div>
+</div>
