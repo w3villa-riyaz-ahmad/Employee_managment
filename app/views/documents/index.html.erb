@@ -1,0 +1,37 @@
+<h1 class="text-center bg-primary">List of all Documents</h1>
+
+<%= link_to "Add New document", new_document_path, class: "btn btn-primary mt-5 mb-2" %>
+
+<table class="table table-striped table-bordered table-hover table-primary">
+  <thead class="table-primary">
+    <tr>
+      <th scope="col">DOC_ID</th>     
+      <th scope="col">Name</th>
+      <th scope="col">Doc Type</th>
+      <th scope="col">Employee</th>
+      <th scope="col">Actions</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @documents.each do |document| %>
+      <tr>
+        <th scope="row"><%= document.id %></th>
+        <td><%= document.name %></td>
+        <td><%= document.doc_type %></td>
+        <td><%= document.employee.name %></td>
+
+        <td>
+          <%= link_to 'Edit', edit_document_path(document), class: "btn btn-warning" %>
+
+          <%= link_to "Delete",
+                document_path(document),
+                data: { turbo_method: :delete, turbo_confirm: "Are you sure?" },
+                class: "btn btn-danger" %>
+
+          <%= link_to 'Show', document_path(document), class: "btn btn-info" %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

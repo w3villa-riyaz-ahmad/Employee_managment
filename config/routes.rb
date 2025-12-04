@@ -3,6 +3,8 @@ Rails.application.routes.draw do
   
   # RESTful routes for employees
   resources :employees
+  resources :documents
+  
   
   root 'employees#index'
 end
