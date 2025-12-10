@@ -19,7 +19,7 @@
         <th scope="row"><%= document.id %></th>
         <td><%= document.name %></td>
         <td><%= document.doc_type %></td>
-        <td><%= document.employee.name %></td>
+        <td><%= link_to document.employee.name , employee_path(document.employee) %></td>
 
         <td>
           <%= link_to 'Edit', edit_document_path(document), class: "btn btn-warning" %>
