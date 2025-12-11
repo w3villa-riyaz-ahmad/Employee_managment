@@ -24,16 +24,19 @@
   </head>
 
  <body class="d-flex flex-column min-vh-100">
-
- <div class="container bg-color-primary ml-auto">
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
-  </div>
+  
 
     <!-- MAIN PAGE CONTENT -->
-    <main class="flex-grow-1">
+    <main class="container flex-grow-1 mt-0">
+
+    
+
       <%= yield %>
     </main>
+
+
+    <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
 
     <!-- FOOTER -->
     <%= render "shared/footer"%>
